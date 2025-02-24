@@ -26,7 +26,7 @@ Puedes visitar la web en el siguiente enlace:
    ```
 3. Ejecuta el proyecto localmente con:
    ```sh
-   npm start
+   npm run dev
    ```
 4. Accede a `http://localhost:3000` en tu navegador (si usas el puerto por defecto).
 
