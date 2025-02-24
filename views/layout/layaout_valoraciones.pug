@@ -1,0 +1,15 @@
+.row.valoraciones
+    each valoracion in valoraciones
+        .col-md-6.col-lg-4.mb-4
+            .card.shadow-lg.border-light.rounded
+                .card-body
+                    p - Valoración del viaje:
+                    blockquote.blockquote
+                        p.mb-0
+                            | "#{valoracion.mensaje}"
+                    p - Sugerencias de mejora al viaje:
+                    blockquote.blockquote
+                        p.mb-0
+                            | "#{valoracion.mejora}"
+                    footer.blockquote-footer.text-right
+                        |✈️ #{valoracion.nombre} / #{valoracion.estrella}

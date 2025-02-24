@@ -1,0 +1,40 @@
+extends ./layout/index
+
+block contenido
+    main.container.mt-5
+        h1.text-center.mt-5 #{pagina}
+
+        blockquote.text-center.mb-5
+            p
+                | Lee sobre nuestros clientes y sus experiencias
+
+        include ./layout/layaout_valoraciones
+
+        .row
+
+            .col-md-12
+                h2.d-block.w-100.text-center Añada una valoración
+
+                if (errores)
+                    each error in errores
+                        .alert.col.alert-danger.text-center=error.mensaje
+
+            .row.justify-content-center.col
+                .col-md-8
+                    form(action="/valoraciones" method="POST")
+                        .form-group
+                            label(style="font-weight: bold;", for="nombre") Introduzca su nombre
+                            input#nombre(type="text", placeholder="Nombre", name="nombre", class="form-control", value=nombre)
+                        .form-group
+                            label(style="font-weight: bold;", for="correo") Introduzca su correo electrónico
+                            input#correo(type="text", placeholder="example@email.com", name="correo", class="form-control", value=correo)
+                        .form-group
+                            label(style="font-weight: bold;", for="mensaje") ¿Como ha ido su viaje?
+                            textarea#mensaje(class="form-control", name="mensaje", placeholder="Escriba aquí...", rows=3)=mensaje
+                        .form-group
+                            label(style="font-weight: bold;", for="mejora") ¿Nos recomienda alguna mejora?
+                            textarea#mejora(class="form-control", name="mejora", placeholder="Escriba aquí...", rows=3)=mensaje
+                        .form-group
+                            label(style="font-weight: bold;", for="estrella") ¿Cuantas estrellas nos da?
+                            input#estrella(type="text", placeholder="1,2,3,4,5 estrellas", name="estrella", class="form-control", value=estrella)
+                        input.btn.btn-success.btn-block(type="submit")
